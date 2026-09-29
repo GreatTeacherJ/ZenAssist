@@ -1,0 +1,25 @@
+[project]
+name = "mission-1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "BLASCOJ24", email = "j.blasco69@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+mission-1 = "app:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "app"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+]
