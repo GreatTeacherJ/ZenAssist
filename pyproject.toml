@@ -7,7 +7,13 @@ authors = [
     { name = "BLASCOJ24", email = "j.blasco69@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "pandas>=3.0.6",
+    "scikit-learn>=1.9.1",
+    "seaborn>=0.13.2",
+]
 
 [project.scripts]
 mission-1 = "app:main"
@@ -22,4 +28,8 @@ module-name = "app"
 [dependency-groups]
 dev = [
     "ipykernel>=7.4.0",
+    "nbclient>=0.11.0",
+    "nbconvert>=7.17.1",
+    "nbformat>=5.11.1",
+    "pandas>=3.0.6",
 ]
