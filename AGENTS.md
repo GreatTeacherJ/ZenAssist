@@ -1,24 +1,24 @@
 # AGENTS.md
 
-Data-science / AI exploration project (compare ML vs LLM algorithms on CFPB consumer-complaints data). Early scaffold: no tests, lint, or CI yet.
+Projet d'exploration data-science / IA (comparaison d'algorithmes ML vs LLM sur les données de plaintes consommateurs CFPB). Première version du scaffold : pas encore de tests, lint, ni CI.
 
 ## Toolchain
 
-- Package manager is **uv** (not pip/venv). Active venv already at `.venv/`. Use `uv add`, `uv run`, `uv sync`.
+- Gestionnaire de paquets : **uv** (pas pip/venv). Environnement virtuel actif : `.venv/`. Utiliser `uv add`, `uv run`, `uv sync`.
 - Python 3.13 (`.python-version`, `requires-python = ">=3.13"`).
-- `pyproject.toml` uses the `uv_build` backend with a **src layout**: the importable package is `app`, living at `src/app/`. Console script is `mission-1 = "app:main"` (in `src/app/__init__.py`).
-- Data lives at `src/data/dataset.csv` (CFPB consumer complaints).
+- `pyproject.toml` utilise le backend `uv_build` avec une **structure src** : le package importable est `app`, situé dans `src/app/`. Le script console est `mission-1 = "app:main"` (dans `src/app/__init__.py`).
+- Les données se trouvent dans `src/data/dataset.csv` (plaintes consommateurs CFPB).
 
 ## Notebooks
 
-- Work happens in `src/app/exploration.ipynb`, scored with a kernel named **`zenassist`** (display "Python (ZenAssist)"). It is NOT installed in `.venv` yet; if the kernel is missing, register it against the venv:
-  `uv run python -m ipykernel install --name zenassist  --display-name "Python (ZenAssist)"`
-- The notebook is authored in **French**; keep markdown/annotations in French. It references a specific visual style (dark-blue headings `#1A5276`/`#2980B9`).
-- Dev deps (`[dependency-groups].dev`) currently only include `ipykernel`; data libraries (pandas, matplotlib, scikit-learn) are not added yet — use `uv add` before importing them.
-- `.venv` and build artifacts are gitignored; do not commit them.
+- Le travail se fait dans `src/app/exploration.ipynb`, évalué avec le kernel **`zenassist`** (affichage « Python (ZenAssist) »). Il n'est pas encore installé dans `.venv` ; si le kernel manque, l'enregistrer contre le venv :
+  `uv run python -m ipykernel install --name zenassist --display-name "Python (ZenAssist)"`
+- Le notebook est rédigé en **français** ; conserver les annotations/markdown en français. Il référence un style visuel spécifique (titres bleu foncé `#1A5276` / `#2980B9`).
+- Les dépendances de données sont installées dans `[project]` : `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`, `sentence-transformers`. Les dépendances dev (`[dependency-groups].dev`) contiennent `ipykernel`, `nbclient`, `nbconvert`, `nbformat` et `pandas`. Toujours utiliser `uv add` pour toute nouvelle dépendance.
+- `.venv` et les artefacts de build sont gitignorés ; ne pas les committer.
 
 ## Mission_1
 
-The company offers a customer support complaint tracking platform that centralizes and optimizes complaint management for over 200 businesses.
-Its goal is to automate the tagging of these complaints to reduce the manual workload required to route complaints to the appropriate support team.
-You have been tasked with designing this automated tagging solution by comparing a Large Language Model (LLM)-based approach with various machine learning methods. You will need to provide a recommendation to your client, taking all these constraints into account.
+L'entreprise propose une plateforme de suivi des réclamations du support client qui centralise et optimise la gestion des plaintes pour plus de 200 entreprises.
+Son objectif est d'automatiser le taggage de ces plaintes afin de réduire la charge de travail manuel nécessaire au routage des plaintes vers l'équipe de support appropriée.
+Vous êtes chargé de concevoir cette solution de taggage automatisé en comparant une approche basée sur un Large Language Model (LLM) avec diverses méthodes de machine learning. Vous devrez fournir une recommandation à votre client, en tenant compte de toutes ces contraintes.
