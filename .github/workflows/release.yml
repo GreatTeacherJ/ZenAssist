@@ -19,7 +19,7 @@ jobs:
       - run: uv sync                       # installe les dépendances du pyproject
 
       - name: Download training data
-        run: curl -L -o dataSet_train.csv.gz "src\data\dataSet_train.csv.gz"   # à adapter
+        run: curl -L -o src/data/dataSet_train.csv.gz "https://github.com/GreatTeacherJ/ZenAssist/releases/download/data_set_v1/dataSet_train.csv.gz"   # à adapter
 
       - name: Train and export model
         run: uv run python src/app/export_model.py

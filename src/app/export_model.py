@@ -7,10 +7,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder
 
-DATA_SET_TRAIN = Path("src/data/dataSet_train.csv.gz")
+SRC_PATH = Path(__file__).parent.parent
+DATA_SET_TRAIN = SRC_PATH / "data" / "dataSet_train.csv.gz"
 FEATURE = "feature"
 TARGET = "target"
-OUTPUT_PATH = Path("src/model/model.plk")
+OUTPUT_PATH = SRC_PATH / "model" / "model.plk"
 STATE = 42
 
 #Génére le Pipeline d'entrainement à changer en fontion du modéle et de l'encodage des features
