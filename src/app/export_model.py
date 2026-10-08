@@ -11,7 +11,7 @@ SRC_PATH = Path(__file__).parent.parent
 DATA_SET_TRAIN = SRC_PATH / "data" / "dataSet_train.csv.gz"
 FEATURE = "feature"
 TARGET = "target"
-OUTPUT_PATH = SRC_PATH / "model" / "model.plk"
+OUTPUT_PATH = SRC_PATH / "model" / "model.pkl"
 STATE = 42
 
 #Génére le Pipeline d'entrainement à changer en fontion du modéle et de l'encodage des features
