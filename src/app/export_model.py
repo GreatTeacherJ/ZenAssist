@@ -11,7 +11,7 @@ SRC_PATH = Path(__file__).parent.parent
 DATA_SET_TRAIN = SRC_PATH / "data" / "dataSet_train.csv.gz"
 FEATURE = "feature"
 TARGET = "target"
-OUTPUT_PATH = SRC_PATH / "model" / "model.pkl"
+OUTPUT_PATH = SRC_PATH / "model" 
 STATE = 42
 
 #Génére le Pipeline d'entrainement à changer en fontion du modéle et de l'encodage des features
@@ -33,14 +33,17 @@ def train_model()->Pipeline:
     ])
 
     model.fit(X_train, y_train_encod)
-    return model
+    return model, lab_enc
 
-def export_model(model, path = OUTPUT_PATH):
-    with open(path, "wb") as f:
+def export_model(model, file_name):
+    save_path = OUTPUT_PATH / file_name
+    with open(save_path, "wb") as f:
         pickle.dump(model, f)
     print(f"Modèle exporté vers {OUTPUT_PATH}")
 
 if __name__ == "__main__":
-    export_model(train_model())
+    model, lab_enc = train_model()
+    export_model(model, "model.pkl")
+    export_model(lab_enc, "lab_enc.pkl")
 
     
