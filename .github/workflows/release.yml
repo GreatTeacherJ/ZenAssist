@@ -24,7 +24,12 @@ jobs:
       - name: Train and export model
         run: uv run python src/app/export_model.py
 
-      - name: Upload model to release
+      - name: Upload model artifacts to release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload ${{ github.event.release.tag_name }} src/model/model.pkl
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" \
+            src/model/model.pkl \
+            src/model/lab_enc.pkl \
+            --clobber
+
