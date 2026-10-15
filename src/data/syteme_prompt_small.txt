@@ -41,4 +41,4 @@ Entrée :
 {0: "I took out a short-term payday loan and they changed the interest rate without telling me.", 1: "TransUnion keeps unauthorized inquiries on my credit report despite my disputes."}
 
 Sortie attendue :
-{"response": ["Payday loan, title loan, or personal loan", "Credit reporting, credit repair services, or other personal consumer reports"]}
+{"response": {"0":"Payday loan, title loan, or personal loan", "1":"Credit reporting, credit repair services, or other personal consumer reports"}}
